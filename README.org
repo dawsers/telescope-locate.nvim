@@ -1,0 +1,57 @@
+* telescope-locate.nvim
+
+** Introduction
+
+=telescope-locate.nvim= is an extension for /Neovim's/
+[[https://github.com/nvim-telescope/telescope.nvim][telescope.nvim]] to
+provide a picker for the GNU
+[[https://www.gnu.org/software/findutils/manual/html_node/find_html/Invoking-locate.html#Invoking-locate][locate]]
+command. It can be downloaded [[https://github.com/dawsers/telescope-locate.nvim][here]].
+
+=locate= is a GNU utility to locate any file in your system very quickly. It
+uses a service that updates a database with all the files for a very fast
+search.
+
+
+** Requirements
+
+=telescope-locate.nvim= is an extension, so you need =telescope.nvim= to
+use the plugin.
+
+Of course, you also need to have =locate= installed and running with its
+corresponding service.
+
+
+** Installation and Configuration
+
+Install using [[https://github.com/junegunn/vim-plug][Plug]].
+
+#+BEGIN_SRC vim
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'dawsers/telescope-locate.nvim'
+#+END_SRC
+
+and setup and configure using /lua/:
+
+#+BEGIN_SRC lua
+require('telescope').load_extension('locate')
+#+END_SRC
+
+
+** Commands
+
+| *Command*                 | *Description*                               |
+|---------------------------+---------------------------------------------|
+| =Telescope locate=        | Use =locate= to quickly search for any file |
+
+There is no default mapping.
+
+*** =locate=
+
+Find any file in your system quickly, using =locate=.
+
+#+BEGIN_SRC vim
+" There is one required parameter, file, with the pattern to search for
+:Telescope locate file=*/locate.lua
+#+END_SRC
+
